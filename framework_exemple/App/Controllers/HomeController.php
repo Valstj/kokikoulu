@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use Library\Controllers\AbstractController;
-use App\Models\PostModel;
+use App\Models\EventModel;
 
 class HomeController extends AbstractController
 {
@@ -11,13 +11,13 @@ class HomeController extends AbstractController
     {
         $name = 'Toto';
         
-        $model = new PostModel();
-        $posts = $model->getAll();
+        $model = new EventModel();
+        $events = $model->getAll();
         
         $this->render('index.phtml', [
             'name' => $name,
             'age' => 20,
-            'posts' => $posts
+            'posts' => $events
         ]);
     }
 }
