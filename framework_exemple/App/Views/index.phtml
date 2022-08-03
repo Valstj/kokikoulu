@@ -10,6 +10,6 @@
 
 <ul>
     <?php foreach ($categories as $category) : ?>
-        <li><?= $category['name'] ?></li>
+        <li><a href="?page=category&id=<?= $category['id'] ?>"><?= $category['name'] ?> </a></li>
     <?php endforeach ?>
 </ul>
