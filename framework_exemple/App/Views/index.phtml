@@ -1,10 +1,10 @@
 <h1>Accueil</h1>
 
 
-<a href="">Ajouter un event</a>
+<a href="?page=add">Ajouter un event</a>
 <ul>
     <?php foreach ($events as $event) : ?>
-        <li><a href="page=show&id=<?= $event['id'] ?>"><?= $event['title'] ?></a></li>
+        <li><a href="?page=show&id=<?= $event['id'] ?>"><?= $event['title'] ?></a></li>
     <?php endforeach ?>
 </ul>
 
