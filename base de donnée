@@ -1,0 +1,111 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mer. 03 août 2022 à 08:58
+-- Version du serveur : 5.7.36
+-- Version de PHP : 7.4.26
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `projet valno`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `category`
+--
+
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE IF NOT EXISTS `category` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` text CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) UNSIGNED NOT NULL,
+  `event_id` int(11) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `event_id` (`event_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `event`
+--
+
+DROP TABLE IF EXISTS `event`;
+CREATE TABLE IF NOT EXISTS `event` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title` text CHARACTER SET utf8 NOT NULL,
+  `description` text CHARACTER SET utf8 NOT NULL,
+  `start_at` date NOT NULL,
+  `adress` text CHARACTER SET utf8 NOT NULL,
+  `created_at` date NOT NULL,
+  `user_id` int(11) UNSIGNED NOT NULL,
+  `category_id` int(11) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `category_id` (`category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `username` text CHARACTER SET utf8 NOT NULL,
+  `email` text CHARACTER SET utf8 NOT NULL,
+  `password` text CHARACTER SET utf8 NOT NULL,
+  `created_at` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`);
+
+--
+-- Contraintes pour la table `event`
+--
+ALTER TABLE `event`
+  ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `event_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
