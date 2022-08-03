@@ -24,6 +24,10 @@ return [
     'add' => [
         EventController::class,
         'add'
+    ],
+    'category'=> [
+        EventController::class,
+        'category'
     ]
 ];
 
