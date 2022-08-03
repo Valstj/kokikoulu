@@ -18,8 +18,6 @@ class HomeController extends AbstractController
         $categories = $categoryModel->getAll();
         
         $this->render('index.phtml', [
-            'name' => $name,
-            'age' => 20,
             'events' => $events,
             'categories'=>$categories
         ]);
