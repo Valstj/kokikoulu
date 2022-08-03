@@ -2,7 +2,7 @@
 
 <ul>
     <?php foreach ($events as $event) : ?>
-        <li><a href="index.php?page=show&id=<?= $event['id'] ?>"><?= $event['title'] ?></a></li>
+        <li><a href="?page=show" <?= $event['title'] ?>"><?= $event['title'] ?></a></li>
     <?php endforeach ?>
 </ul>
 
@@ -11,3 +11,4 @@
         <li><?= $category['name'] ?></li>
     <?php endforeach ?>
 </ul>
+<div class="calendar"></div>
