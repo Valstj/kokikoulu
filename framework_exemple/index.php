@@ -1,8 +1,5 @@
 <?php
 
-use App\Controllers\HomeController;
-use App\Controllers\UserController;
-
 // index.php -> point d'entrée, contrôlleur frontal ()
 
 // Routeur (analyse de la requête HTTP pour déterminer quoi afficher)
