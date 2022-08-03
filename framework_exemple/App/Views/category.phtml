@@ -1,5 +1,7 @@
-<h1>detail events</h1>
+<h1>Liste des événements pour la catégorie <?= $events[0]['name'] ?></h1>
 
-<article>
-    <h1><?= $events['title'] ?></h1>
-</article>
+<?php foreach ($events as $event): ?>
+    <article>
+        <h2><?= $event['title'] ?></h2>
+    </article>
+<?php endforeach ?>
