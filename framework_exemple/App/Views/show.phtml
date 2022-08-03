@@ -1,1 +1,15 @@
 <h1>detail events</h1>
+
+
+<a href="?page=add">Ajouter un event</a>
+<ul>
+    <?php foreach ($events as $event) : ?>
+        <li><a href="?page=show&id=<?= $event['id'] ?>"><?= $event['title'] ?></a></li>
+    <?php endforeach ?>
+</ul>
+
+<ul>
+    <?php foreach ($categories as $category) : ?>
+        <li><?= $category['name'] ?></li>
+    <?php endforeach ?>
+</ul>
