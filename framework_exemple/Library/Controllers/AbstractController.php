@@ -10,4 +10,6 @@ abstract class AbstractController
         extract($vars);
         require 'App/Views/layout.phtml';
     }
+
+    
 }

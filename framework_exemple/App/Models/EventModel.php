@@ -4,26 +4,26 @@ namespace App\Models;
 
 use Library\Database\Connection;
 
-class PostModel
+class EventModel
 {
     public function getAll(): array
     {
         $connection = new Connection();
-        $query = $connection->getPdo()->prepare('SELECT * FROM posts');
+        $query = $connection->getPdo()->prepare('SELECT * FROM category');
         $query->execute();
-        $posts = $query->fetchAll();
+        $events = $query->fetchAll();
         
-        return $posts;
+        return $events;
     }
     
     public function getOne(int $id): array
     {
         $connection = new Connection();
-        $query = $connection->getPdo()->prepare('SELECT * FROM posts WHERE id = :id');
+        $query = $connection->getPdo()->prepare('SELECT * FROM category WHERE id = :id');
         $query->execute(['id' => $id]);
-        $post = $query->fetch();
+        $event = $query->fetch();
         
-        return $post;
+        return $event;
     }
     
     public function create(): void
