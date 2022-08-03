@@ -21,10 +21,10 @@ class EventController extends AbstractController
 
     public function add() {
 
-        $eventModel = new EventModel();
-        $events = $eventModel->getAll();
+        $categoryModel = new CategoryModel();
+        $categories = $categoryModel->getAll();
         $this->render('add.phtml', [
-            'events' => $events,
+            'categories' => $categories,
         ]);
     }
 
