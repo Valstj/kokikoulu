@@ -25,22 +25,20 @@ class EventController extends AbstractController
         $categories = $categoryModel->getAll();
         $this->render('add.phtml', [
             'categories' => $categories,
-<<<<<<< HEAD
-=======
         ]);
     }
+
     public function category()
     {
 
         $categoryModel = new CategoryModel();
         $categories = $categoryModel->getAll();
         $eventModel = new EventModel();
-        $events = $eventModel->getOne($_GET['id']);
+        $events = $eventModel->getByCategory($_GET['id']);
         $this->render('category.phtml', [
             'categories' => $categories,
             'events' => $events
 
->>>>>>> 693b359a79282618f9c07b59de6900a9f778ac0e
         ]);
     }
 
