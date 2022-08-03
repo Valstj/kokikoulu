@@ -9,7 +9,7 @@ class EventModel
     public function getAll(): array
     {
         $connection = new Connection();
-        $query = $connection->getPdo()->prepare('SELECT * FROM category');
+        $query = $connection->getPdo()->prepare('SELECT * FROM event');
         $query->execute();
         $events = $query->fetchAll();
         
@@ -19,7 +19,7 @@ class EventModel
     public function getOne(int $id): array
     {
         $connection = new Connection();
-        $query = $connection->getPdo()->prepare('SELECT * FROM category WHERE id = :id');
+        $query = $connection->getPdo()->prepare('SELECT * FROM event WHERE id = :id');
         $query->execute(['id' => $id]);
         $event = $query->fetch();
         
