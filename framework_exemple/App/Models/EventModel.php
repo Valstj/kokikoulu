@@ -9,7 +9,9 @@ class EventModel
     public function getAll(): array
     {
         $connection = new Connection();
-        $query = $connection->getPdo()->prepare('SELECT * FROM event');
+        $query = $connection->getPdo()->prepare('
+        SELECT * FROM event 
+        INNER JOIN category ON category.id = event.category_id');
         $query->execute();
         $events = $query->fetchAll();
         
@@ -19,7 +21,11 @@ class EventModel
     public function getOne(int $id): array
     {
         $connection = new Connection();
-        $query = $connection->getPdo()->prepare('SELECT * FROM event WHERE id = :id');
+        $query = $connection->getPdo()->prepare('
+            SELECT event.*, category.name FROM event 
+            INNER JOIN category ON category.id = event.category_id
+            WHERE event.id = :id'
+        );
         $query->execute(['id' => $id]);
         $event = $query->fetch();
         
