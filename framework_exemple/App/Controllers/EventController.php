@@ -8,7 +8,7 @@ use App\Models\CategoryModel;
 
 class EventController extends AbstractController
 {
-    public function index(): void
+    public function show(): void
     {
 
         $eventModel = new EventModel();
@@ -21,5 +21,13 @@ class EventController extends AbstractController
             'events' => $events,
             'categories' => $categories
         ]);
+    }
+
+    public function add() {
+
+    }
+
+    public function delete() {
+        
     }
 }
