@@ -15,7 +15,7 @@ class HomeController extends AbstractController
         $eventModel = new EventModel();
         $events = $eventModel->getAll();
         $categoryModel = new CategoryModel;
-        $categories = $categoryModel->getAll();
+        $categories = $categoryModel->getEventCategory();
         
         $this->render('index.phtml', [
             'events' => $events,

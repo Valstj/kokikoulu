@@ -47,9 +47,6 @@ class EventModel
         return $events;
     }
     
-    public function getByCategory(int $categoryId):array [
-        $connection - new Connection
-    ]
     public function create(): void
     {
         // 
