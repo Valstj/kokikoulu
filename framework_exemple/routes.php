@@ -2,6 +2,7 @@
 
 use App\Controllers\HomeController;
 use App\Controllers\UserController;
+use App\Controllers\EventController;
 
 return [
     'home' => [
@@ -15,6 +16,10 @@ return [
     'register' => [
         UserController::class,
         'register'
+    ],    
+    'show' => [
+        EventController::class,
+        'index'
     ]
 ];
 /*     ___
