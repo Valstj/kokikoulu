@@ -1,0 +1,9 @@
+<h1>Accueil</h1>
+
+<p>Bonjour je m'appelle <?= $name ?> et j'ai <?= $age ?> ans</p>
+
+<ul>
+    <?php foreach ($posts as $post): ?>
+        <li><?= $post['title'] ?></li>
+    <?php endforeach ?>
+</ul>
