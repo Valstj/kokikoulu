@@ -10,7 +10,7 @@ class EventModel
     {
         $connection = new Connection();
         $query = $connection->getPdo()->prepare('
-        SELECT * FROM event 
+        SELECT event.*, category.name FROM event 
         INNER JOIN category ON category.id = event.category_id');
         $query->execute();
         $events = $query->fetchAll();
@@ -32,6 +32,9 @@ class EventModel
         return $event;
     }
     
+    public function getByCategory(int $categoryId):array [
+        $connection - new Connection
+    ]
     public function create(): void
     {
         // 
