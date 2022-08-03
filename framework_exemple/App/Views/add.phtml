@@ -1,0 +1,33 @@
+<h1>Evenement Page d'ajout</h1>
+
+<!-- Afficher la liste des cocktails présent en bdd -->
+<h2>Formulaire d'ajout d' Evenement</h2>
+<!-- un nom, un alcohol, 2-3 ingrédients -->
+<form action="index.php?page=add_cocktail" method='post' enctype="multipart/form-data">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-martini-glass-citrus"></i></span>
+        <input type="text" class="form-control" placeholder="Username" name='name' aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Titre</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name='title' rows="3"></textarea>
+
+        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name='description' rows="3"></textarea>
+
+        <label for="exampleFormControlTextarea1" class="form-label">Date</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name='start_at' rows="3"></textarea>
+
+        <label for="exampleFormControlTextarea1" class="form-label">Adresse</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name='address' rows="3"></textarea>
+    </div>
+
+    <select class="form-select" aria-label="Default select example" name='category_id'>
+        <option selected>Choisir une categorie</option>
+        <?php foreach ($categories as $category) : ?>
+            <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+        <?php endforeach; ?>
+    </select>
+
+    <input type="submit" class='btn btn-primary' value="Ajout">
+</form>

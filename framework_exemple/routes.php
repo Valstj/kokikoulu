@@ -16,10 +16,14 @@ return [
     'register' => [
         UserController::class,
         'register'
-    ],    
+    ],
     'show' => [
         EventController::class,
-        'index'
+        'show'
+    ],    
+    'add' => [
+        EventController::class,
+        'add'
     ]
 ];
 /*     ___
